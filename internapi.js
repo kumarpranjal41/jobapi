@@ -5,7 +5,7 @@ const app = express();
 
 app.get('/intern', async(req , resp)=>{
     let data = await dbconnect2();
-    data =await data.find().toArray();
+    data =await data.find().sort({ date: -1 }).toAray();
     console.log(data);
     resp.send(data);
 });
